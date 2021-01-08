@@ -1,5 +1,4 @@
 import { Field, ObjectType } from "@nestjs/graphql";
-import { IsBoolean, IsString, Length } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
@@ -25,4 +24,8 @@ export class Restaurant {
     @Field(type => String)
     @Column()
     ownersName: string;
+
+    @Field(type => String)
+    @Column()
+    categoryName: string;
 }
