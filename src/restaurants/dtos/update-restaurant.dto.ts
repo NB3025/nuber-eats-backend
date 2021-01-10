@@ -11,5 +11,5 @@ export class UpdateRestaurantDto{
     id: number;
 
     @Field(type => UpdateRestaurantInputType)
-    date: UpdateRestaurantInputType;
+    data: UpdateRestaurantInputType;
 }
