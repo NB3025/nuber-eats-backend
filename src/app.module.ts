@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import * as Joi from "joi";
 import { GraphQLModule } from '@nestjs/graphql';
 import { RestaurantsModule } from './restaurants/restaurants.module';
@@ -10,6 +10,7 @@ import { CommonModule } from './common/common.module';
 import { User } from './users/eitities/user.entity';
 import { CoreEntity } from './common/entites/core.entity';
 import { JwtModule } from './jwt/jwt.module';
+import { jwtMiddleware } from './jwt/jwt.middleware';
 
 @Module({
   imports: [
@@ -36,7 +37,7 @@ import { JwtModule } from './jwt/jwt.module';
       database: process.env.DB_NAME,
       synchronize: process.env.NODE_ENV !== "prod",
       logging: process.env.NODE_ENV !== "prod",
-      entities:[User],
+      entities: [User],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
@@ -46,9 +47,9 @@ import { JwtModule } from './jwt/jwt.module';
     }),
     UsersModule,
     CommonModule,
-    
+
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}
