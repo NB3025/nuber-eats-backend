@@ -42,7 +42,7 @@ import { JwtModule } from './jwt/jwt.module';
       autoSchemaFile: true,
     }),
     JwtModule.forRoot({
-      privateKey: process.env.PRIVATE_KEY
+      privateKey: process.env.PRIVATE_KEY,
     }),
     UsersModule,
     CommonModule,
