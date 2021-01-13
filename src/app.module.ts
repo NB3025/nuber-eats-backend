@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { CommonModule } from './common/common.module';
 import { User } from './users/eitities/user.entity';
 import { CoreEntity } from './common/entites/core.entity';
+import { JwtModule } from './jwt/jwt.module';
 
 @Module({
   imports: [
@@ -41,7 +42,8 @@ import { CoreEntity } from './common/entites/core.entity';
       autoSchemaFile: true,
     }),
     UsersModule,
-    CommonModule
+    CommonModule,
+    JwtModule
   ],
   controllers: [],
   providers: [],
